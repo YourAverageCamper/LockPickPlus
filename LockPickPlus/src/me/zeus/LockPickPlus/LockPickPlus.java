@@ -29,6 +29,7 @@ public class LockPickPlus extends JavaPlugin implements Listener
 	
 	
 	
+	@Override
 	public void onEnable()
 	{
 		File config = new File(getDataFolder() + "/config.yml");
@@ -53,6 +54,7 @@ public class LockPickPlus extends JavaPlugin implements Listener
 	{
 		Player p = e.getPlayer();
 		ItemStack is = p.getItemInHand();
+		Block block = e.getClickedBlock();
 		
 		if (is == null)
 			return;
@@ -61,40 +63,73 @@ public class LockPickPlus extends JavaPlugin implements Listener
 		{
 			if (e.getClickedBlock() == null)
 				return;
-			if (e.getClickedBlock() != null && e.getClickedBlock().getType().equals(Material.CHEST))
+			
+			if (e.getClickedBlock().getType().equals(Material.CHEST))
 			{
-				Block clicked = e.getClickedBlock();
-				if (clicked.getState() instanceof Chest)
+				p.getInventory().removeItem(new ItemStack[] { new ItemStack(Material.IRON_INGOT, 1) });
+				if (block.getState() instanceof Chest)
 				{
 					int r = new Random().nextInt(100) + 1;
 					if (chance >= r)
 					{
 						p.sendMessage(successMSG);
-						Chest chest = (Chest) clicked.getState();
+						Chest chest = (Chest) block.getState();
 						p.openInventory(chest.getInventory());
-						p.getInventory().removeItem(new ItemStack[] { new ItemStack(Material.IRON_INGOT, 1) });
 					}
 					else
-					{
 						p.sendMessage(failMSG);
-					}
 				}
-				else if (clicked.getState() instanceof DoubleChest)
+				else if (block.getState() instanceof DoubleChest)
 				{
 					int r = new Random().nextInt(100) + 1;
 					if (chance >= r)
 					{
 						p.sendMessage(successMSG);
-						DoubleChest chest = (DoubleChest) clicked.getState();
+						DoubleChest chest = (DoubleChest) block.getState();
 						p.openInventory(chest.getInventory());
 					}
 					else
-					{
 						p.sendMessage(failMSG);
+				}
+			}
+			else if (block.getType().equals(Material.IRON_DOOR_BLOCK) || block.getType().equals(Material.WOODEN_DOOR))
+			{
+				p.getInventory().removeItem(new ItemStack[] { new ItemStack(Material.IRON_INGOT, 1) });
+				if (block.getType().equals(Material.IRON_DOOR_BLOCK))
+				{
+					if (DoorUtil.isDoorClosed(block))
+					{
+						int r = new Random().nextInt(100) + 1;
+						if (chance >= r)
+						{
+							p.sendMessage(successMSG);
+							DoorUtil.openDoor(block);
+						}
+						else
+							p.sendMessage(failMSG);
+					}
+					else
+					{
+						DoorUtil.closeDoor(block);
 					}
 				}
+				else if (block.getType().equals(Material.WOODEN_DOOR))
+					if (DoorUtil.isDoorClosed(block))
+					{
+						int r = new Random().nextInt(100) + 1;
+						if (chance >= r)
+						{
+							p.sendMessage(successMSG);
+							DoorUtil.openDoor(block);
+						}
+						else
+							p.sendMessage(failMSG);
+					}
+					else
+					{
+						DoorUtil.closeDoor(block);
+					}
 			}
 		}
 	}
-	
 }

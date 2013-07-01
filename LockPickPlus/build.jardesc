@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="WINDOWS-1252" standalone="no"?>
 <jardesc>
     <jar path="C:/Users/Mike/Desktop/Minecraft/Local server/plugins/InfioniteThief.jar"/>
-    <options buildIfNeeded="true" compress="true" descriptionLocation="/InfioniteThief/build.jardesc" exportErrors="true" exportWarnings="true" includeDirectoryEntries="false" overwrite="true" saveDescription="true" storeRefactorings="false" useSourceFolders="false"/>
+    <options buildIfNeeded="true" compress="true" descriptionLocation="/LockPickPlus/build.jardesc" exportErrors="true" exportWarnings="true" includeDirectoryEntries="false" overwrite="true" saveDescription="true" storeRefactorings="false" useSourceFolders="false"/>
     <storedRefactorings deprecationInfo="true" structuralOnly="false"/>
     <selectedProjects/>
     <manifest generateManifest="true" manifestLocation="" manifestVersion="1.0" reuseManifest="false" saveManifest="false" usesManifest="true">
@@ -11,11 +11,12 @@
         </sealing>
     </manifest>
     <selectedElements exportClassFiles="true" exportJavaFiles="true" exportOutputFolder="false">
-        <file path="/InfioniteThief/.classpath"/>
-        <javaElement handleIdentifier="=InfioniteThief/src"/>
-        <file path="/InfioniteThief/build.jardesc"/>
-        <file path="/InfioniteThief/.project"/>
-        <file path="/InfioniteThief/plugin.yml"/>
-        <file path="/InfioniteThief/config.yml"/>
+        <file path="/LockPickPlus/.classpath"/>
+        <javaElement handleIdentifier="=LockPickPlus/src"/>
+        <file path="/LockPickPlus/.gitignore"/>
+        <file path="/LockPickPlus/config.yml"/>
+        <file path="/LockPickPlus/build.jardesc"/>
+        <file path="/LockPickPlus/.project"/>
+        <file path="/LockPickPlus/plugin.yml"/>
     </selectedElements>
 </jardesc>
