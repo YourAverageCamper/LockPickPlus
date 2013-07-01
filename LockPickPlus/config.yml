@@ -1,0 +1,14 @@
+#########################
+# LockPickPlus    plugin#
+#########################
+#
+# Chance (%) that chest will be unlocked (0-100)
+lockpick-chance: 100
+# What permission does the player need to pick the lock?
+permission: InfioniteThief.Steal
+# What message should we send the player if they fail?
+fail-message: '&cCould not pick the lock!'
+# What message should we send the player if they succeed?
+success-message: '&aYou broke into a locked chest!'
+# What mesage should we send the player if they don't have permission
+permission-message: '&4You do not have permission to pick locks.'

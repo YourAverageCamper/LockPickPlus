@@ -1,0 +1,4 @@
+name: LockPickPlus
+version: 1.0
+description: LockPickPlus Plugin
+main: me.zeus.LockPickPlus.LockPickPlus
